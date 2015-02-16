@@ -1,0 +1,328 @@
+BreedID	Breed
+1	Spinone Italiano
+2	New Guinea Singing Dog
+3	Bolognese
+5	Terrier
+6	Hound
+7	Shepherd
+8	Retriever
+9	Spaniel
+10	Akbash
+11	Alano Espanol
+12	Alapaha Blue Blood Bulldog
+13	Alaskan Husky
+14	Alaskan Klee Kai
+15	Alopekis
+16	Alpine Dachsbracke
+17	American Bandogge Mastiff
+18	American Blue Gascon Hound
+19	American Bullnese
+20	American Indian Dog
+21	American Lo-Sze Pugg
+22	American White Shepherd
+23	Appenzeller Sennenhunde
+24	Argentine Dogo
+25	Azawakh
+26	Beauceron
+27	Bergamasco
+28	Boerboel
+29	Bracco Italiano
+30	Caucasian Mountain Dog
+31	Central Asian Outcharka Shepherd
+32	Central Asian Shepherd Dog
+33	Chinook
+34	Coonhound, American English
+35	Coonhound, Black and Tan
+36	Coonhound, Redbone
+37	Czechoslovakian Wolfdog
+38	Entlebucher Mountain Dog
+39	Finnish Lapphund
+40	Greenland Dog
+41	Griffon Vendeen, Grand Basset
+42	Kai Ken
+43	Karelian Bear Dog
+44	Kooikerhondje
+45	Lagotto Romagnolo
+46	Lowchen
+47	Mudi
+48	Norbottenspets
+49	Norwegian Lundehund
+50	Perro de Presa Canario
+51	Peruvian Inca Orchid
+52	Plott Hound
+53	Portuguese Podengo
+54	Pumi
+55	Pyrenean Shepherd
+56	Rafeiro do Alentejo
+57	Sloughi
+58	Spaniel, Boykin
+59	Stabyhoun
+60	Terrier, Abyssinian Sand
+61	Terrier, American Crested Sand
+62	Terrier, Black Russian
+63	Terrier, Cesky
+64	Terrier, Glen of Imaal
+65	Terrier, Miniature Bull
+66	Terrier, Parson Russell
+67	Thai Ridgeback
+68	Tosa
+69	Treeing Tennessee Brindle
+70	Xoloitzcuintli
+80	Terrier, Fox, Toy
+81	Cur, Mountain
+82	Cur, Black-Mouth
+83	Carolina Dog
+84	McNab Herding Dog
+85	Bulldog, American
+86	Terrier, Patterdale
+87	Terrier, American Pit Bull
+91	Silken Windhound
+92	Portugese Sheepdog
+93	Armant
+94	Podenco Canario
+95	Aidi
+96	Damchi
+97	Cambodian Razorback Dog
+98	Bouvier des Ardennes
+99	Karakachan Dog
+100	Kerry Beagle
+101	Abruzzese Mastiff
+102	Cane Di Oropa
+103	Cane Toccatore
+104	Dutch Smoushond
+105	Saarloos Wolfdog
+106	Haldenstoever
+107	Castro Laboreiro Dog
+108	Podenco Gallego
+109	Perdiguero Gallego
+110	Banter Bulldogge
+351	Poong-San Dog
+352	Hovawart
+353	Dutch Sheepdog
+354	Barbet
+355	Dosa Inu
+356	Mee Kyun Dosa
+357	Polish Lowland Sheepdog
+590	Braque Francais Gascogne
+591	Braque Francais Pyrenees
+592	Griffon, Wirehaired Pointing
+593	Pointer
+596	Pointer, German Wirehaired
+597	Pudelpointer
+598	Retriever, Chesapeake Bay
+599	Retriever, Curly Coated
+600	Retriever, Flat-Coated
+601	Retriever, Golden
+602	Retriever, Labrador
+603	Retriever, Nova Scotia Duck Tolling
+604	Setter, English
+605	Setter, Gordon
+606	Setter, Irish
+607	Spaniel, American Cocker
+608	Spaniel, American Water
+609	Brittany
+610	Spaniel, Clumber
+611	Spaniel, English Cocker
+612	Spaniel, English Springer
+613	Spaniel, Field
+614	Spaniel, French
+615	Spaniel, Irish Water
+616	Spaniel, Sussex
+617	Spaniel, Welsh Springer
+618	Vizsla, Smooth Haired
+619	Vizsla, Wire Haired
+620	Weimaraner
+621	Afghan Hound
+622	Basenji
+623	Basset Hound
+624	Beagle
+625	Bloodhound
+626	Borzoi
+627	Coonhound
+628	Dachshund, Miniature Long Haired
+629	Dachshund, Miniature Smooth Haired
+630	Dachshund, Standard Smooth Haired
+631	Dachshund, Standard Long Haired
+632	Dachshund, Standard Wire Haired
+633	Dachshund, Miniature Wire Haired
+634	Deerhound, Scottish
+635	Drever
+636	Finnish Spitz
+637	Foxhound, American
+638	Foxhound, English
+639	Greyhound
+640	Griffon Vendeen, Petit Basset
+641	Harrier
+642	Ibizan Hound
+643	Irish Wolfhound
+644	Norwegian Elkhound
+645	Otterhound
+646	Pharaoh Hound
+647	Rhodesian Ridgeback
+648	Saluki
+649	Whippet
+650	Akita
+651	Alaskan Malamute
+652	Bernese Mountain Dog
+653	Boxer
+654	Bullmastiff
+655	Canaan
+656	Canadian Eskimo
+657	Doberman Pinscher
+658	Great Dane
+659	Great Pyrenees
+660	Komondor
+661	Kuvasz
+662	Leonberger
+663	Mastiff
+664	Newfoundland
+665	Portuguese Water Dog
+666	Rottweiler
+667	Samoyed
+668	Schnauzer, Giant
+669	Schnauzer, Standard
+670	Siberian Husky
+671	Saint Bernard
+672	Terrier, Airedale
+673	Terrier, American Staffordshire
+674	Terrier, Australian
+675	Terrier, Bedlington
+676	Border Collie
+677	Terrier, Bull
+678	Terrier, Cairn
+679	Terrier, Dandie Dinmont
+680	Terrier, Fox, Smooth
+681	Terrier, Fox, Wire
+682	Terrier, Irish
+683	Terrier, Kerry Blue
+684	Terrier, Lakeland
+685	Terrier, Manchester
+686	Terrier, Norfolk
+687	Terrier, Norwich
+688	Schnauzer, Miniature
+689	Terrier, Scottish
+690	Terrier, Sealyham
+691	Terrier, Skye
+692	Terrier, Soft Coated Wheaten
+693	Terrier, Staffordshire Bull
+694	Terrier, Welsh
+695	Terrier, West Highland White
+696	Affenpinscher
+697	Spaniel, Cavalier King Charles
+698	Chihuahua, Long Coat
+699	Chihuahua, Short Coat
+700	Chinese Crested
+701	Spaniel, English Toy
+702	Griffon, Brussels
+703	Italian Greyhound
+704	Japanese Chin
+705	Maltese
+707	Mexican Hairless
+708	Papillon
+709	Pekingese
+710	Miniature Pinscher
+711	Pomeranian
+712	Poodle, Toy
+713	Pug
+714	Terrier, Silky
+715	Terrier, Yorkshire
+716	Bichon Frise
+717	Terrier, Boston
+718	Bulldog
+719	Chinese Shar-Pei
+720	Chow Chow
+721	Dalmatian
+722	Bulldog, French
+723	Japanese Spitz
+724	Keeshond
+725	Lhasa Apso
+726	Poodle, Miniature
+727	Poodle, Standard
+728	Schipperke
+729	Shiba Inu
+730	Shih Tzu
+731	Spaniel, Tibetan
+732	Terrier, Tibetan
+733	Australian Cattle Dog
+734	Australian Shepherd
+735	Bearded Collie
+736	Belgian Sheepdog
+737	Groenendael
+738	Belgian Laekenois
+739	Belgian Malinois
+740	Belgian Tervuren
+741	Berger des Pyrenees
+742	Bouvier des Flandres
+743	Briard
+744	Collie, Rough
+745	Collie, Smooth
+746	German Shepherd
+747	German Shepherd, King
+748	Puli
+749	Norwegian Buhund
+750	Old English Sheepdog
+751	Shetland Sheepdog
+752	Welsh Corgi, Cardigan
+753	Welsh Corgi, Pembroke
+754	Australian Kelpie
+757	Mix
+758	Dunker Hound
+759	Estrela Mountain Dog
+760	Eurasier
+761	Fila Brasileiro
+762	German Spitz
+763	Greater Swiss Mountain Dog
+764	Setter, Irish Red and White
+765	Terrier, Jack Russell
+766	Terrier, Japanese
+767	Lancashire Heeler
+768	Landseer
+769	Munsterlander, Large 
+770	Neapolitan Mastiff
+771	Terrier, Pit Bull
+772	Swedish Elkhound
+773	Tahitian Bear Dog
+774	Tibetan Mastiff
+776	Cane Corso
+777	Terrier, Border
+778	Dogue de Bordeaux
+780	American Eskimo
+781	English Mastiff
+782	Coonhound, Bluetick
+784	Munsterlander,Small
+785	Icelandic Sheepdog
+787	Havanese
+789	Picardy Sheepdog
+790	Coonhound, Treeing Walker
+791	American Blue Heeler
+792	German Pinscher
+793	Pointer, German Shorthaired
+794	Coton de Tulear
+795	Bulldog, English
+796	Anatolian Shepherd
+798	Terrier, Rat
+799	Terrier, English Staffordshire
+801	Catahoula Leopard dog
+803	Swedish Vallhund
+804	Korean Jindo
+805	Spanish Water Dog
+806	Australian Koolie
+808	Terrier, American Hairless
+809	Terrier, Russell
+235393	Ainu
+235394	Australian Shepherd, Miniature
+235395	Azores Cattle Dog
+235396	Brittany, French
+235397	Bulldog, Victorian
+235398	Chinese Foo
+235399	Cirneco dell Etna
+235401	Danish Broholmer
+235402	Dutch Shepherd
+235403	Italiano Volpino
+235404	Kangal
+235405	Lacy
+235406	Maremma Sheepdog
+235407	Olde English Bulldogge
+235408	Royal Bahamian Potcake
+235410	Shiloh Shepherd
+235411	South Russian Ovcharkas
