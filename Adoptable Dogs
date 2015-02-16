@@ -1,0 +1,232 @@
+<style>
+			body{
+				cursor:wait;
+			}
+			.gridview {width:100%; margin:auto;}
+			.gridview > div {display:inline-block; width:29%; margin:2%; padding:0.5%; background-color:#fff; vertical-align: top;}
+			div.inline { display:inline-block; }
+		</style>
+<div class="inline">
+			<p style='margin:0px 0px;'>Sex</p>
+			<select id="sex" style="width:100px;" onChange="getAnimals(document.getElementById('sex').value, document.getElementById('breed').value, document.getElementById('age').value, document.getElementById('location').value);">
+				<option value="A">All</option>
+				<option value="M">Male</option>
+				<option value="F">Female</option>
+			</select>
+		</div>
+		<div class="inline">
+			<p style="margin:0px 0px;">Breed</p>
+			<select id="breed" onChange="getAnimals(document.getElementById('sex').value, document.getElementById('breed').value, document.getElementById('age').value, document.getElementById('location').value);">
+				<option value="All">All</option>
+				<option value="10">Akbash</option>
+				<option value="650">Akita</option>
+				<option value="13">Alaskan Husky</option>
+				<option value="651">Alaskan Malamute</option>
+				<option value="791">American Blue Heeler</option>
+				<option value="780">American Eskimo</option>
+				<option value="796">Anatolian Shepherd</option>
+				<option value="733">Australian Cattle Dog</option>
+				<option value="754">Australian Kelpie</option>
+				<option value="806">Australian Koolie</option>
+				<option value="734">Australian Shepherd</option>
+				<option value="235394">Australian Shepherd, Miniature</option>
+				<option value="622">Basenji</option>
+				<option value="623">Basset Hound</option>
+				<option value="624">Beagle</option>
+				<option value="739">Belgian Malinois</option>
+				<option value="652">Bernese Mountain Dog</option>
+				<option value="716">Bichon Frise</option>
+				<option value="625">Bloodhound</option>
+				<option value="28">Boerboel</option>
+				<option value="3">Bolognese</option>
+				<option value="676">Border Collie</option>
+				<option value="653">Boxer</option>
+				<option value="591">Braque Francais Pyrenees</option>
+				<option value="609">Brittany</option>
+				<option value="235396">Brittany, French</option>
+				<option value="718">Bulldog</option>
+				<option value="85">Bulldog, American</option>
+				<option value="795">Bulldog, English</option>
+				<option value="722">Bulldog, French</option>
+				<option value="103">Cane Toccatore</option>
+				<option value="801">Catahoula Leopard dog</option>
+				<option value="698">Chihuahua, Long Coat</option>
+				<option value="699">Chihuahua, Short Coat</option>
+				<option value="700">Chinese Crested</option>
+				<option value="719">Chinese Shar-Pei</option>
+				<option value="720">Chow Chow</option>
+				<option value="235399">Cirneco dell Etna</option>
+				<option value="744">Collie, Rough</option>
+				<option value="745">Collie, Smooth</option>
+				<option value="627">Coonhound</option>
+				<option value="36">Coonhound, Redbone</option>
+				<option value="790">Coonhound, Treeing Walker</option>
+				<option value="82">Cur, Black-Mouth</option>
+				<option value="628">Dachshund, Miniature Long Haired</option>
+				<option value="629">Dachshund, Miniature Smooth Haired</option>
+				<option value="633">Dachshund, Miniature Wire Haired</option>
+				<option value="631">Dachshund, Standard Long Haired</option>
+				<option value="630">Dachshund, Standard Smooth Haired</option>
+				<option value="632">Dachshund, Standard Wire Haired</option>
+				<option value="721">Dalmatian</option>
+				<option value="657">Doberman Pinscher</option>
+				<option value="778">Dogue de Bordeaux</option>
+				<option value="235402">Dutch Shepherd</option>
+				<option value="781">English Mastiff</option>
+				<option value="636">Finnish Spitz</option>
+				<option value="637">Foxhound, American</option>
+				<option value="746">German Shepherd</option>
+				<option value="747">German Shepherd, King</option>
+				<option value="658">Great Dane</option>
+				<option value="659">Great Pyrenees</option>
+				<option value="763">Greater Swiss Mountain Dog</option>
+				<option value="40">Greenland Dog</option>
+				<option value="639">Greyhound</option>
+				<option value="702">Griffon, Brussels</option>
+				<option value="787">Havanese</option>
+				<option value="6">Hound</option>
+				<option value="643">Irish Wolfhound</option>
+				<option value="703">Italian Greyhound</option>
+				<option value="725">Lhasa Apso</option>
+				<option value="705">Maltese</option>
+				<option value="663">Mastiff</option>
+				<option value="84">McNab Herding Dog</option>
+				<option value="710">Miniature Pinscher</option>
+				<option value="757">Mix</option>
+				<option value="664">Newfoundland</option>
+				<option value="644">Norwegian Elkhound</option>
+				<option value="49">Norwegian Lundehund</option>
+				<option value="750">Old English Sheepdog</option>
+				<option value="235407">Olde English Bulldogge</option>
+				<option value="645">Otterhound</option>
+				<option value="708">Papillon</option>
+				<option value="709">Pekingese</option>				
+				<option value="52">Plott Hound</option>
+				<option value="593">Pointer</option>
+				<option value="793">Pointer, German Shorthaired</option>
+				<option value="596">Pointer, German Wirehaired</option>				
+				<option value="711">Pomeranian</option>
+				<option value="726">Poodle, Miniature</option>
+				<option value="727">Poodle, Standard</option>
+				<option value="712">Poodle, Toy</option>			
+				<option value="665">Portuguese Water Dog</option>				
+				<option value="713">Pug</option>				
+				<option value="8">Retriever</option>
+				<option value="598">Retriever, Chesapeake Bay</option>
+				<option value="599">Retriever, Curly Coated</option>
+				<option value="600">Retriever, Flat-Coated</option>
+				<option value="601">Retriever, Golden</option>
+				<option value="602">Retriever, Labrador</option>				
+				<option value="647">Rhodesian Ridgeback</option>
+				<option value="666">Rottweiler</option>
+				<option value="671">Saint Bernard</option>			
+				<option value="667">Samoyed</option>
+				<option value="728">Schipperke</option>
+				<option value="668">Schnauzer, Giant</option>
+				<option value="688">Schnauzer, Miniature</option>
+				<option value="669">Schnauzer, Standard</option>
+				<option value="604">Setter, English</option>
+				<option value="606">Setter, Irish</option>				
+				<option value="7">Shepherd</option>
+				<option value="751">Shetland Sheepdog</option>
+				<option value="729">Shiba Inu</option>
+				<option value="730">Shih Tzu</option>				
+				<option value="670">Siberian Husky</option>				
+				<option value="57">Sloughi</option>				
+				<option value="9">Spaniel</option>
+				<option value="607">Spaniel, American Cocker</option>
+				<option value="697">Spaniel, Cavalier King Charles</option>				
+				<option value="611">Spaniel, English Cocker</option>
+				<option value="612">Spaniel, English Springer</option>
+				<option value="701">Spaniel, English Toy</option>				
+				<option value="731">Spaniel, Tibetan</option>
+				<option value="617">Spaniel, Welsh Springer</option>				
+				<option value="5">Terrier</option>				
+				<option value="672">Terrier, Airedale</option>			
+				<option value="87">Terrier, American Pit Bull</option>
+				<option value="673">Terrier, American Staffordshire</option>				
+				<option value="717">Terrier, Boston</option>
+				<option value="677">Terrier, Bull</option>
+				<option value="678">Terrier, Cairn</option>								
+				<option value="799">Terrier, English Staffordshire</option>				
+				<option value="765">Terrier, Jack Russell</option>				
+				<option value="685">Terrier, Manchester</option>				
+				<option value="687">Terrier, Norwich</option>
+				<option value="66">Terrier, Parson Russell</option>
+				<option value="86">Terrier, Patterdale</option>
+				<option value="771">Terrier, Pit Bull</option>
+				<option value="798">Terrier, Rat</option>				
+				<option value="689">Terrier, Scottish</option>				
+				<option value="714">Terrier, Silky</option>				
+				<option value="693">Terrier, Staffordshire Bull</option>				
+				<option value="695">Terrier, West Highland White</option>
+				<option value="715">Terrier, Yorkshire</option>
+				<option value="67">Thai Ridgeback</option>
+				<option value="774">Tibetan Mastiff</option>
+				<option value="618">Vizsla, Smooth Haired</option>			
+				<option value="620">Weimaraner</option>
+				<option value="752">Welsh Corgi, Cardigan</option>
+				<option value="753">Welsh Corgi, Pembroke</option>
+				<option value="649">Whippet</option>
+			</select>
+		</div>
+		<div class="inline">
+			<p style="margin:0px 0px;">Age</p>
+			<select id="age" onChange="getAnimals(document.getElementById('sex').value, document.getElementById('breed').value, document.getElementById('age').value, document.getElementById('location').value);">
+				<option value="All">All</option>
+				<option value="UnderYear">Under 1 Year</option>
+				<option value="OverYear">Over 1 Year</option>
+			</select>
+		</div>
+<div class="inline">
+			<p style="margin:0px 0px;">Location</p>
+			<select id="location" onChange="getAnimals(document.getElementById('sex').value, document.getElementById('breed').value, document.getElementById('age').value, document.getElementById('location').value);">
+				<option value="">Any</option>
+				<option value="Adoption Dogs">Adoption Dogs</option>
+				<option value="Foster Home">Foster Home</option>
+				<option value="Isolation Dogs">Isolation Dogs</option>
+				<option value="Puppy Room">Puppy Room</option>
+				<option value="Stray Dog Kennels">Stray Dog Kennels</option>
+			</select>
+		</div>
+		<div id="grid" style="width:100%; margin:auto;"></div>
+[raw]
+<script type="text/javascript">
+	jQuery(document).ready(function($){
+		getAnimals('', '', '', '', '');
+	});
+			function getAnimals(sex, breed, age, location){
+				jQuery.ajax({
+					url: "[THE LOCATION OF YOUR 'GETDOGS.PHP' FILE]",
+					type: "POST",
+					data: {SEX:sex, BREED:breed, AGE:age, LOCATION:location},
+					success: function(response){
+						document.getElementById("grid").innerHTML="";
+						var jsonRes = JSON.parse(response);
+						for(var i =0;i<jsonRes.length-1;i++){
+							var child = JSON.parse(jsonRes[i]);
+							var years = parseInt(child[6]/12);
+							var months = parseInt(child[6] % 12);
+							var age=0;
+							if(years<=0){
+								age=months+" months";
+							}else if(months<=0){
+								age=years+" years";
+							}else{
+								age=years+" years, "+months+" months";
+							}
+							document.getElementById("grid").innerHTML+=
+							"<div id='griditem' style='cursor:pointer; display:inline-block; width:29%; vertical-align: top; margin:1%; padding:1%; background-color:#fff;' onclick=\"window.location='https://whs4pets.org/adopt-a-pet/pet-details/index.php?id="+child[0]+"';\">"+
+								"<img width='155px' src='"+child[1]+"' /><br><p><font size='3' color='#00287C'><b>"+child[2]+
+								"</b></font>"+"<br>"+child[3]+"/ "+child[4]+"<br>"+child[5]+"<br>"+age+"<br>"+child[7]+"</p>"+
+							"</div>";
+						}
+						document.body.style.cursor = "auto";
+					},
+					error: function (responseData, textStatus, errorThrown) {
+						alert(errorThrown);
+					}
+				});
+			}
+	  </script>
+[/raw]
