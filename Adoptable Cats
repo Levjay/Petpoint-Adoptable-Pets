@@ -1,0 +1,126 @@
+<style>
+			body{
+				cursor:wait;
+			}
+			.gridview {width:100%; margin:auto;}
+			.gridview > div {display:inline-block; width:29%; margin:2%; padding:0.5%; background-color:#fff; vertical-align: top;}
+			div.inline { display:inline-block; }
+		</style>
+<div class="inline">
+			<p style='margin:0px 0px;'>Sex</p>
+			<select id="sex" style="width:100px;" onChange="getAnimals(document.getElementById('sex').value, document.getElementById('breed').value, document.getElementById('age').value, document.getElementById('location').value);">
+				<option value="">Any</option>
+				<option value="Male">Male</option>
+				<option value="Female">Female</option>
+			</select>
+		</div>
+		<div class="inline">
+			<p style="margin:0px 0px;">Breed</p>
+			<select id="breed" onChange="getAnimals(document.getElementById('sex').value, document.getElementById('breed').value, document.getElementById('age').value, document.getElementById('location').value);">
+				<option value="">Any</option>
+				<option value="783">Abyssinian</option>
+				<option value="71">American Bobtail</option>
+				<option value="358">American Curl</option>
+				<option value="360">American Shorthair</option>				
+				<option value="362">Angora</option>				
+				<option value="364">Bengal</option>
+				<option value="365">Birman</option>
+				<option value="367">Bombay</option>				
+				<option value="369">British Shorthair</option>
+				<option value="370">Burmese</option>				
+				<option value="372">Chartreux</option>				
+				<option value="374">Colourpoint Shorthair</option>				
+				<option value="378">Domestic Longhair</option>
+				<option value="775">Domestic Medium Hair</option>
+				<option value="379">Domestic Shorthair</option>
+				<option value="380">Egyptian Mau</option>
+				<option value="235417">European Shorthair</option>
+				<option value="381">Exotic Longhair</option>
+				<option value="382">Exotic Shorthair</option>
+				<option value="359">Havana Brown</option>
+				<option value="384">Himalayan</option>				
+				<option value="388">Maine Coon</option>
+				<option value="389">Manx</option>
+				<option value="350">Mix</option>
+				<option value="366">Munchkin</option>
+				<option value="390">Norwegian Forest</option>				
+				<option value="235418">Oriental Long Hair</option>
+				<option value="392">Oriental Shorthair</option>
+				<option value="393">Persian</option>
+				<option value="74">Pixie-Bob</option>				
+				<option value="394">Ragdoll</option>
+				<option value="395">Russian Blue</option>
+				<option value="235419">Savannah</option>				
+				<option value="397">Siamese</option>				
+				<option value="399">Snowshoe</option>				
+				<option value="401">Sphynx</option>
+				<option value="78">Turkish Angora</option>
+			</select>
+		</div>
+		<div class="inline">
+			<p style="margin:0px 0px;">Age</p>
+			<select id="age" onChange="getAnimals(document.getElementById('sex').value, document.getElementById('breed').value, document.getElementById('age').value, document.getElementById('location').value);">
+				<option value="">Any</option>
+				<option value="UnderYear">Under 1 Year</option>
+				<option value="OverYear">Over 1 Year</option>
+			</select>
+		</div>
+<div class="inline">
+			<p style="margin:0px 0px;">Location</p>
+			<select id="location" onChange="getAnimals(document.getElementById('sex').value, document.getElementById('breed').value, document.getElementById('age').value, document.getElementById('location').value);">
+				<option value="">Any</option>
+				<option value="Admin Conference Room">Admin Conference Room</option>
+				<option value="Cattery A">Cattery A</option>
+				<option value="Cattery B">Cattery B</option>
+				<option value="Clinic">Clinic</option>
+				<option value="Foster Home">Foster Home</option>
+				<option value="Isolation Cats">Isolation Cats</option>
+				<option value="Kitten Room">Kitten Room</option>
+				<option value="Natures Pet Market">Nature's Pet Market</option>
+				<option value="Petco-Commercial St">Petco-Commercial St</option>
+				<option value="Petco-Keizer">Petco-Keizer</option>
+				<option value="Petco-Lancaster">Petco-Lancaster</option>
+				<option value="Suite">Suite</option>
+			</select>
+		</div>
+		<div id="grid" style="width:100%; margin:auto;"></div>
+[raw]
+<script type="text/javascript">
+	jQuery(document).ready(function($){
+		getAnimals('', '', '', '');
+	});
+			function getAnimals(sex, breed, age, location){
+				jQuery.ajax({
+					url: "[THE URL FOR YOUR 'getcats.php' FILE]",
+					type: "POST",
+					data: {SEX:sex, BREED:breed, AGE:age, LOCATION:location},
+					success: function(response){
+						document.getElementById("grid").innerHTML="";
+						var jsonRes = JSON.parse(response);
+						for(var i =0;i<jsonRes.length-1;i++){
+							var child = JSON.parse(jsonRes[i]);
+							var years = parseInt(child[5]/12);
+							var months = parseInt(child[5] % 12);
+							var age=0;
+							if(years<=0){
+								age=months+" months";
+							}else if(months<=0){
+								age=years+" years";
+							}else{
+								age=years+" years, "+months+" months";
+							}
+							document.getElementById("grid").innerHTML+=
+							"<div id='griditem' style='cursor:pointer; display:inline-block; width:29%; vertical-align: top; margin:1%; padding:1%; background-color:#fff;' onclick=\"window.location='https://whs4pets.org/adopt-a-pet/pet-details/index.php?id="+child[0]+"';\">"+
+								"<img width='155px' src='"+child[1]+"' /><br><p><font size='3' color='#00287C'><b>"+child[2]+
+								"</b></font>"+"<br>"+child[3]+"<br>"+child[4]+"<br>"+age+"<br>"+child[6]+"</p>"+
+							"</div>";
+						}
+						document.body.style.cursor = "auto";
+					},
+					error: function (responseData, textStatus, errorThrown) {
+						alert(errorThrown);
+					}
+				});
+			}
+	  </script>
+[/raw]
