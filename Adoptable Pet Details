@@ -1,0 +1,214 @@
+<style>
+   #container{padding:10px;}
+   #left{max-width: 300px; float: left; margin-right:20px}
+   #right{margin-left: 0px; }
+   .clear{clear: both;}
+   table {margin-top:10px; margin-bottom:20px; border-collapse: collapse;}
+   tr {border-bottom:1pt solid black;}
+
+</style>
+<script type="text/javascript">
+   function imageChanger(img){
+      document.getElementById('bigphoto').innerHTML="<img src='"+img+"' width='100%'/>";
+   }
+</script>
+
+[insert_php]
+echo "[raw]";
+$url = "http://www.petango.com/webservices/wsadoption.asmx/AdoptableDetails";
+			$data = array("authkey" => "7aut87hidwevt5k47hn4ouyg6osb04mbtora1lxy1hvb1sjni5", "animalID" => $_GET["id"]);
+			$options = array(
+				"http" => array(
+					"header"  => "Content-type: application/x-www-form-urlencoded\r\n",
+					"method"  => "POST",
+					"content" => http_build_query($data),
+				),
+			);
+			$context  = stream_context_create($options);
+			$result = file_get_contents($url, true, $context);
+			$details = simplexml_load_string($result);
+echo "<a href='https://whs4pets.org/adopt-a-pet/".$details->Species."s' title='Back to Adoptable ".$details->Species."s' class='btn silver btn-large btn-block' target='_self'><i class='fa fa-arrow-left'></i>   Back to Adoptable ".$details->Species."s</a><br>";
+echo "<div id=\"container\">";
+$broken= strlen($details->ID);
+if ($broken<=4) {
+header("Location: https://whs4pets.org/adopt-a-pet/");
+die("Sorry, it looks like this pet is no longer available. You will be redirected to the adoptable pets menu.");
+} else {
+    echo "";
+}							
+echo "<font size=\"6\"><b>".$details->AnimalName."</b></font><br><br>";
+echo "<div id=\"bigphoto\">";
+						echo "<img src=\"".$details->Photo1."\" width=\"100%\"/></div>";
+					echo "<div style=\"margin-top:10px;\" id=\"imgs\">";
+							echo "<a href=\"javascript:void(0);\" onclick=\"imageChanger(&#34;".$details->Photo1."&#34;);\"><img src=\"".$details->Photo1."\" style=\"margin-right:5px; height:50px;\"/></a>";
+							echo "<a href=\"javascript:void(0);\" onclick=\"imageChanger(&#34;".$details->Photo2."&#34;);\"><img src=\"".$details->Photo2."\" style=\"margin-right:5px; height:50px;\"/></a>";
+							echo "<a href=\"javascript:void(0);\" onclick=\"imageChanger(&#34;".$details->Photo3."&#34;);\"><img src=\"".$details->Photo3."\" style=\"margin-right:5px; height:50px;\"/></a>";
+					echo "</div></div><br>";
+$video= strlen($details->VideoID);
+if ($video<=4) {
+    echo "";
+} else {
+    echo "<br><iframe width='100%' height='350' src='//www.youtube.com/embed/" .$details->VideoID. "?rel=0' frameborder='0' allowfullscreen></iframe><br><br>";
+}
+echo "<div class='column grid_6'><p><a href='https://whs4pets.org/donate/sponsor/sponsor-a-pet/?petid1=" .$details->ID. "&petname1=" .$details->AnimalName. "' title='Sponsor a Pet' class='btn yellow btn-large btn-block' target='_self'><i class='fa fa-star'></i>   Sponsor " .$details->AnimalName. "</a></p></div>";
+echo "<div class='column grid_6 last'><p><a href='https://whs4pets.org/stay-informed/contact-us/?reason=Adopting&ID=" .$details->ID. "&petname=" .$details->AnimalName. "&Species=".$details->Species."' title='Ask about Adopting' class='btn red btn-large btn-block' target='_self'><i class='fa fa-heart'></i>   Ask about " .$details->AnimalName. "</a></p></div><br><br>";
+			    echo "<div id=\"left\">";
+					$age=0;
+					$years= intVal($details->Age / 12);
+					$months= intVal($details->Age % 12);
+					if($years<=0){
+						$age=$months." months";
+					}else if($months<=0){
+						$age=$years." years";
+					}else{
+						$age=$years." years, ".$months." months";
+					}
+					echo "<table width=\"100%\">";
+						echo "<tr>";
+							echo "<td width=\"50%\" valign=\"top\"><b>Animal ID</b></td>";
+							echo "<td width=\"50%\">".$details->ID."</td>";
+						echo "</tr>";
+echo "<tr>";
+							echo "<td width=\"50%\" valign=\"top\"><b>Intake Date</b></td>";
+							echo "<td width=\"50%\">";
+$intakedate = date_create($details->LastIntakeDate);
+echo date_format($intakedate, 'F jS Y');
+echo "</td>";
+						echo "</tr>";
+						echo "<tr>";
+							echo "<td width=\"50%\" valign=\"top\"><b>Species</b></td>";
+							echo "<td width=\"50%\">".$details->Species."</td>";
+						echo "</tr>";
+						echo "<tr>";
+							echo "<td width=\"50%\" valign=\"top\"><b>Breed</b></td>";
+							echo "<td width=\"50%\">".$details->PrimaryBreed."/ ".$details->SecondaryBreed."</td>";
+						echo "</tr>";
+						echo "<tr>";
+							echo "<td width=\"50%\" valign=\"top\"><b>Age</b></td>";
+							echo "<td width=\"50%\">".$age."</td>";
+						echo "</tr>";
+						echo "<tr>";
+							echo "<td width=\"50%\" valign=\"top\"><b>Sex</b></td>";
+							echo "<td width=\"50%\">".$details->Sex."</td>";
+						echo "</tr>";
+						echo "<tr>";
+							echo "<td width=\"50%\" valign=\"top\"><b>Weight</b></td>";
+							echo "<td width=\"50%\">".$details->BodyWeight."</td>";
+						echo "</tr>";
+						echo "<tr>";
+							echo "<td width=\"50%\" valign=\"top\"><b>Primary Color</b></td>";
+							echo "<td width=\"50%\">".$details->PrimaryColor."</td>";
+						echo "</tr>";
+						echo "<tr>";
+							echo "<td width=\"50%\" valign=\"top\"><b>Spayed/Neutered</b></td>";
+							echo "<td width=\"50%\">".$details->Altered."</td>";
+						echo "</tr>";
+						echo "<tr>";
+							echo "<td width=\"50%\" valign=\"top\"><b>Adoption Fee</b></td>";
+							echo "<td width=\"50%\">&#36;".$details->Price."</td>";
+						echo "</tr>";
+echo "<tr>";
+							echo "<td width=\"50%\" valign=\"top\"><b>Location</b></td>";
+							echo "<td width=\"50%\">".$details->Location." ";
+$primloc= strlen($details->Location);
+$secloc= strlen($details->Sublocation);
+if ($primloc > $secloc) {
+echo "".$details->Sublocation."</td>";
+} else {
+echo "</td>";
+}
+						echo "</tr>";
+$famrating= ($details->Species);
+if ($famrating == 'Cat') {
+echo "";
+} else { 
+echo "<tr>";
+echo "<td width=\"50%\" valign=\"top\"><b>Family Rating  </b></td>";
+echo "<td width=\"50%\">".$details->BehaviorResult."<a href='https://whs4pets.org/?p=47450'  title='what is this' class='btn btn-mini' target='_blank'><i class='fa fa-question-circle'></i></a></td>";				
+echo "</tr>";
+}
+$declawed= ($details->Species);
+if ($declawed == 'Dog') {
+echo "";
+} else { 
+echo "<tr>";
+echo "<td width=\"50%\" valign=\"top\"><b>Declawed  </b></td>";
+echo "<td width=\"50%\">".$details->Declawed."</td>";				
+echo "</tr>";
+}
+						echo "<tr>";
+							echo "<td width=\"50%\" valign=\"top\"><b>Housetrained</b></td>";
+							echo "<td width=\"50%\">".$details->Housetrained."</td>";
+						echo "</tr>";
+						echo "<tr>";
+							echo "<td width=\"50%\" valign=\"top\"><b>On Hold</b></td>";
+							echo "<td width=\"50%\">".$details->OnHold."<a href='https://whs4pets.org/?p=49553'  title='what is this' class='btn btn-mini' target='_blank'><i class='fa fa-question-circle'></i></a></td>";
+						echo "</tr>";
+					echo "</table>";
+$nokids= ($details->NoKids);
+if ($nokids == 'Yes') {
+echo "<a href='https://whs4pets.org/stay-informed/faqs/pet-flagged-no-children/' target='_blank'><img src='https://whs4pets.org/wp-content/uploads/2015/01/no_kids_small.png' alt='no_kids_small' width='90' height='90' class='alignnone size-full wp-image-108343' /></a>";
+} else { 
+echo "";
+}
+$nocats= ($details->NoCats);
+if ($nocats == 'Yes') {
+echo "<a href='https://whs4pets.org/stay-informed/faqs/pet-flagged-no-cats/' target='_blank'><img src='https://whs4pets.org/wp-content/uploads/2015/01/no_cats_small.png' alt='no_cats_small' width='90' height='90' class='alignnone size-full wp-image-108343' /></a>";
+} else { 
+echo "";
+}
+$nodogs= ($details->NoDogs);
+if ($nodogs == 'Yes') {
+echo "<a href='https://whs4pets.org/stay-informed/faqs/pet-flagged-no-dogs/' target='_blank'><img src='https://whs4pets.org/wp-content/uploads/2015/01/no_dogs_small.png' alt='no_dogs_small' width='90' height='90' class='alignnone size-full wp-image-108343' /></a>";
+} else { 
+echo "";
+}
+echo "</div>";
+				echo "<div id=\"right\">";
+echo "<br>";
+$nodsc= strlen($details->Dsc);
+if ($nodsc<=4) {
+    echo "<font size=\"4\">Hi there!  I'm still unpacking, so I haven't had a chance to sit down for my blog interview yet. <br><br> 
+
+Sorry about that!  <br><br> 
+
+But I always have time for visitors.  In fact, I 'd love to see you!<br><br> 
+
+You can hit the red button just below my photo to ask the staff about me - or just come down to ".$details->Location." to visit me.  I'm waiting for you!<br><br> 
+
+You can hit the yellow button with the star to support my moving expenses with a sponsorship.<br><br> 
+
+Thanks for looking!
+
+</font>";
+} else {
+    echo "";
+}		
+echo "<font size=\"4\">".$details->Dsc."</font>";
+echo "<br><br>";
+				echo "<div class=\"clear\"></div>";
+			echo "</div>";
+echo "[/raw]";
+
+[/insert_php]
+[divider style="solid"]
+[raw]
+[one_half]<a href="https://whs4pets.org/adopt-a-pet/dogs/"><img class="wp-image-47433 alignnone" alt="Adoptable Dogs" src="https://whs4pets.org/wp-content/uploads/2013/08/Adoptable-Dogs-Buttons.png" width="300" height="249" /></a>[/one_half]
+[one_half last]<a href="https://whs4pets.org/adopt-a-pet/cats/"><img class="wp-image-47434 alignnone" alt="Adoptable Cats Button" src="https://whs4pets.org/wp-content/uploads/2013/08/Adoptable-Cats-Button.png" width="300" height="249" /></a>[/one_half]
+[clear]
+[/raw]
+[divider style="solid"]
+[raw]
+[one_third]
+<a style="font-size: 14px; line-height: 1.5em;" href="http://www.24petwatch.com/" target="_blank"><img class="size-full wp-image-45479 alignnone" alt="24PetWatch" src="https://whs4pets.org/wp-content/uploads/2013/12/24petwatch-small.png" width="201" height="100" /></a>
+
+[/one_third]
+[two_third last]This pet is eligible for 30 days of insurance through 24PetWatch Gift of Pet Insurance, which can be extended to a long-term policy.  Visit  <a title="24PetWatch" href="http://www.24petwatch.com/" target="_blank">www.24PetWatch.com</a> or call 1-877-291-1524 for more information.[/two_third]
+[clear]
+[/raw]
+
+[raw]
+[one_third]<a href="http://www.thepetangostore.com" target="_blank"><img class="alignnone size-full wp-image-45480" alt="The Petango Store" src="https://whs4pets.org/wp-content/uploads/2013/12/petango_store_logo-small.png" width="201" height="47" /></a>[/one_third]
+[two_third last]Visit <a title="The Petango Store" href="http://www.thepetangostore.com" target="_blank">ThePetangoStore.com</a> for discounted prices on pet medication and supplies! Low prices on Flea/Tick, Heartworm &amp; more! Receive a 10% discount on your first order.[/two_third]
+[clear]
+[/raw]
