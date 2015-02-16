@@ -7,4 +7,4 @@ We have made some modifications, including conditionals for youtube videos, etc.
 
 One item we hope to develop is a dynamically populating breed list from the XML.
 
-A wordpress plugin isn't currently available, but would recommend referring to @PRdeltoid and project.
+A wordpress plugin isn't currently available, but would recommend referring to @PRDeltoid and project here https://github.com/PRDeltoid/Petpoint-Webservices.
